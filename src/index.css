@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 230 25% 4%;
+    --foreground: 210 20% 92%;
+
+    --card: 230 20% 8%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 230 20% 8%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 185 100% 50%;
+    --primary-foreground: 230 25% 4%;
+
+    --secondary: 320 90% 55%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 230 15% 14%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 265 90% 60%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 230 15% 18%;
+    --input: 230 15% 14%;
+    --ring: 185 100% 50%;
+
+    --radius: 0.75rem;
+
+    --neon-glow: 185 100% 50%;
+    --neon-secondary: 320 90% 55%;
+    --neon-accent: 265 90% 60%;
+    --glass: 230 20% 10%;
+    --glass-border: 230 15% 20%;
+
+    --sidebar-background: 230 20% 6%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-primary: 185 100% 50%;
+    --sidebar-primary-foreground: 230 25% 4%;
+    --sidebar-accent: 230 15% 14%;
+    --sidebar-accent-foreground: 210 20% 92%;
+    --sidebar-border: 230 15% 18%;
+    --sidebar-ring: 185 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  ::selection {
+    background: hsl(185 100% 50% / 0.3);
+    color: hsl(210 20% 98%);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(230 25% 4%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(185 100% 50% / 0.3);
+    border-radius: 3px;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-glass/40 backdrop-blur-xl border border-glass-border/30;
+  }
+
+  .neon-text {
+    color: hsl(var(--primary));
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5),
+                 0 0 40px hsl(var(--primary) / 0.2);
+  }
+
+  .neon-border {
+    border-color: hsl(var(--primary) / 0.4);
+    box-shadow: 0 0 15px hsl(var(--primary) / 0.1),
+                inset 0 0 15px hsl(var(--primary) / 0.05);
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3),
+                0 0 60px hsl(var(--primary) / 0.1),
+                0 0 100px hsl(var(--primary) / 0.05);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  }
+
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)));
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at center, hsl(var(--primary) / 0.08) 0%, transparent 70%);
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
